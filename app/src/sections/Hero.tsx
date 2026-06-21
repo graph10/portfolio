@@ -196,7 +196,7 @@ export function Hero({ onCtaClick }: HeroProps) {
           </button>
 
           <a
-            href="/resume/Roman_Malygin.pdf"
+            href="/resume/Resume_Kulikov_Roman.pdf"
             download
             className="
               px-8 py-3.5
