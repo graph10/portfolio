@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Download } from 'lucide-react';
+import { track } from '@vercel/analytics';
 
 import { HeroCanvas } from '../components/HeroCanvas';
 import { SectionLabel } from '../components/SectionLabel';
@@ -21,7 +22,9 @@ export function Hero({ onCtaClick }: HeroProps) {
 
   useEffect(() => {
     const tl = gsap.timeline({
-      defaults: { ease: 'power3.out' },
+      defaults: {
+        ease: 'power3.out',
+      },
     });
 
     tl.to(
@@ -83,7 +86,7 @@ export function Hero({ onCtaClick }: HeroProps) {
       {/* WebGL Canvas */}
       <HeroCanvas />
 
-      {/* Grain */}
+      {/* Film Grain */}
       <div
         className="absolute inset-0 z-[2] pointer-events-none"
         style={{
@@ -198,6 +201,7 @@ export function Hero({ onCtaClick }: HeroProps) {
           <a
             href="/resume/Resume_Kulikov_Roman.pdf"
             download
+            onClick={() => track('resume_download')}
             className="
               px-8 py-3.5
               flex
